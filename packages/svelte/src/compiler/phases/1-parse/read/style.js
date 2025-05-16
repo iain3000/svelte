@@ -605,6 +605,10 @@ function read_identifier(parser) {
 		e.css_expected_identifier(start);
 	}
 
+	if (identifier.startsWith('\\')) {
+		identifier = String.fromCodePoint(parseInt(identifier.slice(1), 16));
+	}
+
 	return identifier;
 }
 
